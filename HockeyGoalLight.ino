@@ -6,13 +6,24 @@ SparkButton b = SparkButton();
 void setup() {
     // Tell b to get everything ready to go
     b.begin();
+    Spark.function("score", scoreAlert);
 }
 
 void loop() {
-    for (uint16_t i=1; i<=11; i++)
+
+}
+
+
+int scoreAlert(String command)
+{
+    for (uint16_t j=0; j<30; j++)
     {
-        b.ledOn(i, 0, 255, 0);
-        delay(25);
-        b.ledOff(i);   
+        for (uint16_t i=1; i<=11; i++)
+        {
+            b.ledOn(i, 255, 0, 0);
+            delay(25);
+            b.ledOff(i);   
+        }
     }
+   return 1;
 }
